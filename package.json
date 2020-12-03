@@ -1,0 +1,13 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "2020": "node 2020/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
