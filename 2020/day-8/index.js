@@ -34,7 +34,7 @@ const traverseProgram = (line, acc, executedLines) => {
 
 console.log(`Part One: ${traverseProgram(0, 0, {})}`)
 
-/* --- Part Two (Doesn't Work for Some Reason)  --- */
+/* --- Part Two --- */
 const fixProgram = (line, acc, executedLines, replaced) => {
   if (executedLines[line]) return
   if (!instructions[line]) return acc
