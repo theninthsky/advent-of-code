@@ -42,7 +42,7 @@ const fixProgram = (line, acc, executedLines, replaced) => {
   executedLines[line] = true
 
   const [nextLine, nextAcc] = executeInstruction(instructions[line], line, acc)
-  const res = fixProgram(nextLine, nextAcc, { ...executedLines })
+  const res = fixProgram(nextLine, nextAcc, { ...executedLines }, replaced)
 
   if (res) return res
 
