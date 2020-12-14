@@ -31,10 +31,10 @@ const findEncryptionWeakness = (list, invalidNumber) => {
   for (let i = 0; i < list.length - 1; i++)
     for (let j = i; j < list.length; j++) {
       const sequence = list.slice(i, j + 1)
+      const sequenceSum = sequence.reduce((sum, num) => sum + num)
 
-      if (sequence.reduce((sum, num) => sum + num) === invalidNumber) {
-        return Math.min(...sequence) + Math.max(...sequence)
-      }
+      if (sequenceSum > invalidNumber) break
+      if (sequenceSum === invalidNumber) return Math.min(...sequence) + Math.max(...sequence)
     }
 }
 
