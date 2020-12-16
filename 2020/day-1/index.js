@@ -7,10 +7,13 @@ const input = readFileSync('./2020/day-1/input.txt', 'utf8')
 const inputArr = input
   .split('\r\n')
   .map(Number)
+  .filter(num => num < 2020)
   .sort((a, b) => a - b)
 
 for (let i = 0; i < inputArr.length - 1; i++)
   for (let j = i + 1; j < inputArr.length; j++) {
+    if (inputArr[i] + inputArr[j] > 2020) break
+
     if (inputArr[i] + inputArr[j] === 2020) {
       console.log(`Part One: ${inputArr[i] * inputArr[j]}`)
       break
@@ -21,6 +24,8 @@ for (let i = 0; i < inputArr.length - 1; i++)
 for (let i = 0; i < inputArr.length - 2; i++)
   for (let j = i + 1; j < inputArr.length - 1; j++)
     for (let k = j + 1; k < inputArr.length; k++) {
+      if (inputArr[i] + inputArr[j] + inputArr[k] > 2020) break
+
       if (inputArr[i] + inputArr[j] + inputArr[k] === 2020) {
         console.log(`Part Two: ${inputArr[i] * inputArr[j] * inputArr[k]}`)
         break
