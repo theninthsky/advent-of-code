@@ -4,7 +4,10 @@ console.log('*-- Advent of Code 2020 --*\n')
 console.log('--- Day 1 ---')
 
 const input = readFileSync('./2020/day-1/input.txt', 'utf8')
-const inputArr = input.split('\r\n').map(Number)
+const inputArr = input
+  .split('\r\n')
+  .map(Number)
+  .sort((a, b) => a - b)
 
 for (let i = 0; i < inputArr.length - 1; i++)
   for (let j = i + 1; j < inputArr.length; j++) {
