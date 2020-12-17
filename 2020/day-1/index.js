@@ -20,9 +20,7 @@ console.log(`Part One: ${findTwoSummandsProduct(inputArr, 2020)}`)
 
 /* --- Part Two --- */
 const findThreeSummandsProduct = (arr, sum) => {
-  const hashMap = {}
-
-  hashMap[arr[0]] = true
+  const hashMap = { [arr[0]]: true }
 
   for (let i = 1; i < arr.length - 1; i++) {
     for (let j = i + 1; j < arr.length; j++) {
