@@ -4,30 +4,31 @@ console.log('*-- Advent of Code 2020 --*\n')
 console.log('--- Day 1 ---')
 
 const input = readFileSync('./2020/day-1/input.txt', 'utf8')
-const inputArr = input
-  .split('\r\n')
-  .map(Number)
-  .filter(num => num < 2020)
-  .sort((a, b) => a - b)
+const inputArr = input.split('\r\n').map(Number)
 
-for (let i = 0; i < inputArr.length - 1; i++)
-  for (let j = i + 1; j < inputArr.length; j++) {
-    if (inputArr[i] + inputArr[j] > 2020) break
+const findTwoSummandsProduct = (arr, sum) => {
+  const hashMap = {}
 
-    if (inputArr[i] + inputArr[j] === 2020) {
-      console.log(`Part One: ${inputArr[i] * inputArr[j]}`)
-      break
-    }
+  for (const num of arr) {
+    if (hashMap[sum - num]) return num * (sum - num)
+
+    hashMap[num] = true
   }
+}
+
+console.log(`Part One: ${findTwoSummandsProduct(inputArr, 2020)}`)
 
 /* --- Part Two --- */
-for (let i = 0; i < inputArr.length - 2; i++)
-  for (let j = i + 1; j < inputArr.length - 1; j++)
-    for (let k = j + 1; k < inputArr.length; k++) {
-      if (inputArr[i] + inputArr[j] + inputArr[k] > 2020) break
+const findThreeSummandsProduct = (arr, sum) => {
+  const hashMap = {}
 
-      if (inputArr[i] + inputArr[j] + inputArr[k] === 2020) {
-        console.log(`Part Two: ${inputArr[i] * inputArr[j] * inputArr[k]}`)
-        break
-      }
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (hashMap[sum - arr[i] - arr[j]]) return arr[i] * arr[j] * (sum - arr[i] - arr[j])
     }
+
+    hashMap[arr[i]] = true
+  }
+}
+
+console.log(`Part Two: ${findThreeSummandsProduct(inputArr, 2020)}`)
