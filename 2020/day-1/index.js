@@ -22,7 +22,9 @@ console.log(`Part One: ${findTwoSummandsProduct(inputArr, 2020)}`)
 const findThreeSummandsProduct = (arr, sum) => {
   const hashMap = {}
 
-  for (let i = 0; i < arr.length - 1; i++) {
+  hashMap[arr[0]] = true
+
+  for (let i = 1; i < arr.length - 1; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (hashMap[sum - arr[i] - arr[j]]) return arr[i] * arr[j] * (sum - arr[i] - arr[j])
     }
